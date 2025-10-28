@@ -4,7 +4,10 @@ import { Icon, Label, NativeTabs } from "expo-router/unstable-native-tabs";
 
 export default function TabLayout() {
   return (
-    <NativeTabs>
+    <NativeTabs
+      labelVisibilityMode="labeled"
+      disableTransparentOnScrollEdge={true}
+    >
       <NativeTabs.Trigger name="overview">
         <Icon sf={{ default: "tray.full", selected: "tray.full.fill" }} />
         <Label selectedStyle={{}}>Overview</Label>

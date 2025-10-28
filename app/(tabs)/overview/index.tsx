@@ -6,6 +6,7 @@ import {
   Text,
   VStack,
 } from "@expo/ui/swift-ui";
+import { Link } from "expo-router";
 import React, { useEffect, useState } from "react";
 
 const baseURL = "https://api.vercel.com";
@@ -72,12 +73,18 @@ export default function OverviewPage() {
         >
           <Section title="Projects">
             {projects.map((proj) => (
-              <VStack key={proj.id} alignment="leading">
-                <Text>{proj.name}</Text>
-                <Text color="secondary" size={16}>
-                  {proj.targets.production.alias[0]}
-                </Text>
-              </VStack>
+              <Link
+                key={proj.id}
+                href={{
+                  pathname: "/project/[projectId]",
+                  params: { projectId: proj.id, projectName: proj.name },
+                }}
+                asChild
+              >
+                <VStack alignment="leading">
+                  <Text>{proj.name}</Text>
+                </VStack>
+              </Link>
             ))}
           </Section>
         </List>
