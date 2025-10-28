@@ -31,6 +31,17 @@ export default function RootLayout() {
               },
             }}
           />
+          <Stack.Screen
+            name="deployment/[deploymentId]"
+            options={{
+              headerTransparent: Platform.OS === "ios" ? true : false,
+              headerLargeTitle: false,
+              title: "",
+              headerStyle: {
+                backgroundColor: Platform.OS === "ios" ? "transparent" : "red",
+              },
+            }}
+          />
         </Stack>
       </ThemeProvider>
     </QueryClientProvider>

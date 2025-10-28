@@ -1,6 +1,7 @@
 import { fetchData } from "@/lib/api";
 import { Alias, DevelopmentEvent, Project, ReadyState } from "@/types";
 import {
+  Button,
   CircularProgress,
   Host,
   LabeledContent,
@@ -10,6 +11,7 @@ import {
   VStack,
 } from "@expo/ui/swift-ui";
 import { useQuery } from "@tanstack/react-query";
+import * as Linking from "expo-linking";
 import { Stack, useLocalSearchParams } from "expo-router";
 import React from "react";
 import { Platform } from "react-native";
@@ -132,11 +134,26 @@ const AssigningCustomDomains = ({ deploymentId }: { deploymentId: string }) => {
     queryFn: () => fetchDeploymentAliases(),
   });
 
+  if (error instanceof Error) {
+    return <Text color="red">{error.message}</Text>;
+  }
+
   return (
     <Section title="Assigning Custom Domain">
-      {data?.aliases.map((alias) => (
-        <Text key={alias.uid}>{alias.alias}</Text>
-      ))}
+      {isLoading ? (
+        <CircularProgress />
+      ) : (
+        <>
+          {data?.aliases.map((alias) => (
+            <Button
+              key={alias.uid}
+              onPress={() => Linking.openURL(`https://${alias.alias}`)}
+            >
+              <Text>{alias.alias}</Text>
+            </Button>
+          ))}
+        </>
+      )}
     </Section>
   );
 };

@@ -4,7 +4,7 @@ import React from "react";
 import { Platform } from "react-native";
 import { useThemeColor } from "../overview/_layout";
 
-export default function DomainsLayout() {
+export default function Layout() {
   const tabBarBackgroundColor = useThemeColor({
     light: "#FFFFFF",
     dark: "#000000",
@@ -20,7 +20,7 @@ export default function DomainsLayout() {
       <Stack.Screen
         name="index"
         options={{
-          title: Platform.OS === "ios" ? "Domains" : "",
+          title: Platform.OS === "ios" ? "Settings" : "",
           headerStyle: {
             backgroundColor: isLiquidGlassAvailable()
               ? "transparent"

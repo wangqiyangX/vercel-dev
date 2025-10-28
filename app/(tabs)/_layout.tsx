@@ -16,9 +16,9 @@ export default function TabLayout() {
         <Icon sf={"calendar.day.timeline.leading"} />
         <Label selectedStyle={{}}>Deployments</Label>
       </NativeTabs.Trigger>
-      <NativeTabs.Trigger name="domains">
-        <Icon sf={"link"} />
-        <Label selectedStyle={{}}>Domains</Label>
+      <NativeTabs.Trigger name="settings">
+        <Icon sf={"gearshape"} />
+        <Label selectedStyle={{}}>Settings</Label>
       </NativeTabs.Trigger>
     </NativeTabs>
   );
