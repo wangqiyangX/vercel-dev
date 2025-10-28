@@ -1,3 +1,6 @@
+export type GetProjectsResponseBody = {
+  pagination: {};
+};
 export type Project = {
   accountId: string;
   speedInsights: SpeedInsights;
@@ -110,7 +113,7 @@ export type LatestDeployment = {
   name: string;
   plan: string;
   private: boolean;
-  readyState: string;
+  readyState: ReadyState;
   readySubstate: string;
   target: string;
   teamId: string;
@@ -205,4 +208,38 @@ export type Targets = {
 export type WebAnalytics = {
   id: string;
   enabledAt: number;
+};
+
+export type ReadyState =
+  | "BUILDING"
+  | "ERROR"
+  | "INITIALIZING"
+  | "QUEUED"
+  | "READY"
+  | "CANCELED";
+
+export type DevelopmentEvent = {
+  created: number;
+  date: number;
+  deploymentId: string;
+  id: string;
+  text: string;
+  type: DevelopmentEventType;
+  serial: string;
+  info: Info;
+};
+
+export type DevelopmentEventType = "stderr" | "stdout";
+
+export type Info = {
+  type: string;
+  name: string;
+  entrypoint: string;
+};
+
+export type Alias = {
+  uid: string;
+  alias: string;
+  created: Date;
+  redirect: null;
 };
