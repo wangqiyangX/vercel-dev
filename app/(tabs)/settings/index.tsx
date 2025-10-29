@@ -89,7 +89,6 @@ const DomainsSection = () => {
     queryFn: fetchDomains,
   });
   const domains = data?.domains;
-  console.debug("🚀 ~ DomainsSection ~ domains:", domains);
 
   return (
     <Section title="Domains">
@@ -115,8 +114,6 @@ const AccountSection = () => {
   });
 
   const user = data?.user;
-
-  console.debug("🚀 ~ AccountSection ~ data:", data);
 
   return (
     <Section title="Account">

@@ -515,3 +515,149 @@ export type SoftBlock = {
   reason: string;
   blockedDueToOverageType: string;
 };
+
+export type DelopmentPlus = {
+  alias: string[];
+  aliasAssigned: boolean;
+  aliasError: null;
+  automaticAliases: string[];
+  bootedAt: number;
+  buildingAt: number;
+  buildSkipped: boolean;
+  buildContainerFinishedAt: number;
+  createdAt: number;
+  creator: DeploymentCreator;
+  deletedAt: null;
+  id: string;
+  initReadyAt: number;
+  name: string;
+  meta: Meta;
+  originCacheRegion: string;
+  project: DeploymentProject;
+  public: boolean;
+  ready: number;
+  readyState: string;
+  readySubstate: string;
+  regions: string[];
+  source: string;
+  status: string;
+  target: string;
+  team: DeploymentTeam;
+  type: string;
+  url: string;
+  version: number;
+  previewCommentsEnabled: boolean;
+  oidcTokenClaims: DeploymentOidcTokenClaims;
+  lambdas: Lambda[];
+  aliasAssignedAt: number;
+  build: Build;
+  builds: any[];
+  createdIn: string;
+  crons: any[];
+  env: string[];
+  functions: null;
+  inspectorUrl: string;
+  isInConcurrentBuildsQueue: boolean;
+  isInSystemBuildsQueue: boolean;
+  ownerId: string;
+  plan: string;
+  projectId: string;
+  projectSettings: ProjectSettings;
+  routes: null;
+  images: Images;
+  config: Config;
+};
+
+export type Build = {
+  env: string[];
+};
+
+export type Config = {
+  version: number;
+  secureComputePrimaryRegion: null;
+  secureComputeFallbackRegion: null;
+  functionTimeout: number;
+  functionType: string;
+  functionMemoryType: string;
+  isUsingActiveCPU: boolean;
+};
+
+export type DeploymentCreator = {
+  uid: string;
+  username: string;
+  avatar: string;
+};
+
+export type Images = {
+  domains: any[];
+  sizes: number[];
+  remotePatterns: any[];
+  minimumCacheTTL: number;
+  formats: string[];
+  dangerouslyAllowSVG: boolean;
+  contentSecurityPolicy: string;
+  contentDispositionType: string;
+};
+
+export type Lambda = {
+  id: string;
+  createdAt: number;
+  entrypoint: string;
+  readyState: string;
+  readyStateAt: number;
+  output: any[];
+};
+
+export type DeploymentMeta = {
+  gitCommitAuthorName: string;
+  gitCommitAuthorEmail: string;
+  gitCommitMessage: string;
+  gitCommitRef: string;
+  gitCommitSha: string;
+};
+
+export type DeploymentOidcTokenClaims = {
+  sub: string;
+  iss: string;
+  scope: string;
+  aud: string;
+  owner: string;
+  owner_id: string;
+  project: string;
+  project_id: string;
+  environment: string;
+  plan: string;
+};
+
+export type DeploymentProject = {
+  id: string;
+  name: string;
+  framework: string;
+};
+
+export type ProjectSettings = {
+  buildCommand: null;
+  devCommand: null;
+  framework: string;
+  commandForIgnoringBuildStep: null;
+  installCommand: null;
+  outputDirectory: null;
+  speedInsights: SpeedInsights;
+  webAnalytics: WebAnalytics;
+};
+
+export type DeploymentSpeedInsights = {
+  id: string;
+  hasData: boolean;
+};
+
+export type DeploymentWebAnalytics = {
+  id: string;
+};
+
+export type DeploymentTeam = {
+  id: string;
+  name: string;
+  slug: string;
+  avatar: string;
+};
