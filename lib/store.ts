@@ -6,10 +6,5 @@ export async function saveToken(key: string, value: string) {
 
 export async function getValueFor(key: string) {
   let result = await SecureStore.getItemAsync(key);
-  console.debug("🚀 ~ getValueFor ~ result:", result);
-  if (result) {
-    return true;
-  } else {
-    return false;
-  }
+  return !!result;
 }
